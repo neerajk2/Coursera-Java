@@ -22,6 +22,30 @@ public class Part3 {
 
         System.out.println("twoOccurrences of "+case2a+ " in "+case2b+ " is "+twoOccurrences(case2a,case2b));
 
+<<<<<<< HEAD
+        String a1 = "na";
+        String b1 = "Banana";
+
+        lastPart(a1,b1);
+
+        String a2 = "West";
+        String b2 = "Ode to the West Wind";
+
+        lastPart(a2,b2);
+
+    }
+
+    public void lastPart (String a, String b) {
+
+        int startIndex = b.indexOf(a);
+        if (startIndex != -1) {
+            System.out.println("The part of string after " + a + " in " + b + " is " + b.substring(startIndex));
+        }
+        else {
+            System.out.println("The part of string after " + a + " in " + b + " is " + b);
+        }
+=======
+>>>>>>> origin/StringAssignment
     }
 
     public static void main (String[] args) {
