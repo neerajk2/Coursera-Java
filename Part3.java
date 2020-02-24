@@ -22,6 +22,7 @@ public class Part3 {
 
         System.out.println("twoOccurrences of "+case2a+ " in "+case2b+ " is "+twoOccurrences(case2a,case2b));
 
+<<<<<<< HEAD
         String a1 = "na";
         String b1 = "Banana";
 
@@ -43,6 +44,8 @@ public class Part3 {
         else {
             System.out.println("The part of string after " + a + " in " + b + " is " + b);
         }
+=======
+>>>>>>> origin/StringAssignment
     }
 
     public static void main (String[] args) {
