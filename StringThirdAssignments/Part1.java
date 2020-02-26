@@ -58,19 +58,48 @@ public class Part1 {
         return geneList;
     }
 
-    public void testing (String dna) {
+    public void testProcessGenes (String dna) {
+        processGenes(getAllGenes(dna));
+    }
 
-        System.out.println("Testing on "+dna);
-        StorageResource gene = getAllGenes(dna);
-        for (String g : gene.data()) {
-            System.out.println(g);
+    public double getCgRatio (String dna) {        double countCg = 0;
+        for (int i = 0; i < dna.length(); i++) {
+
+            if (dna.charAt(i)=='C' || dna.charAt(i)=='G') {
+                countCg++;
+            }
         }
+        return countCg/dna.length();
+    }
+
+    public void processGenes (StorageResource sr) {
+
+        int count = 0, max = 0, countCG = 0;
+        for (String g : sr.data()) {
+
+            if (g.length()>60) {
+                System.out.println(g);
+                count++;
+                if (g.length()>max) max = g.length();
+            }
+
+            if (getCgRatio(g) > 0.35) {
+                System.out.println(g+ " CG ratio : "+getCgRatio(g));
+
+                countCG++;
+            }
+        }
+        System.out.println("Count : "+count);
+        System.out.println("CountCG : "+countCG);
+        System.out.println("Max : "+max);
     }
 
     public static void main(String[] args) {
 
         Part1 p1 = new Part1();
-        String dna = "AATGCATATATAACTATCTAAATCTACGATATATTAAGGCTGATAGATGGCTAATAGTCATGTACATGACTAATAGTAATGATAG";
-        p1.testing(dna);
+        FileResource f = new FileResource("dnaFile.txt");
+        String dna = f.asString();
+        p1.testProcessGenes(dna);
+
     }
 }
